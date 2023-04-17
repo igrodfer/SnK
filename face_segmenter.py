@@ -5,7 +5,7 @@ def rgb2gray(rgb):
 
 
 def segment_image(image,tile_size,margin_top=0,margin_left=0):
-    img_height , img_width = image.shape
+
     image_no_margin = image[margin_top:,margin_left:]
 
     img_height , img_width = image_no_margin.shape
@@ -13,9 +13,9 @@ def segment_image(image,tile_size,margin_top=0,margin_left=0):
     new_height = ((img_height)//tile_size)*tile_size
     new_width = ((img_width)//tile_size)*tile_size
 
-    image = image[:new_height,:new_width]
+    image_res = image_no_margin[:new_height,:new_width]
 
-    tiled_array =  image.reshape((img_height) // tile_size,
+    tiled_array =  image_res.reshape((img_height) // tile_size,
                                  tile_size,
                                  (img_width) // tile_size,
                                  tile_size)
