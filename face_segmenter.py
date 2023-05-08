@@ -1,4 +1,5 @@
 import numpy as np
+import cv2
 
 def rgb2gray(rgb):
     return np.dot(rgb[...,:3], [0.2989, 0.5870, 0.1140]).astype('uint8')
@@ -23,3 +24,7 @@ def segment_image(image,tile_size,margin_top=0,margin_left=0):
     tiled_array = tiled_array.swapaxes(1,2)
 
     return np.concatenate(tiled_array,axis=0),(new_height,new_width)
+
+
+def next_pyramid_step(img,scale = 0.9):
+    return cv2.resize(img,None,fy=scale,fx=scale)
