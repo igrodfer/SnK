@@ -8,3 +8,5 @@ counts/*
 
 images/*
 !images/.gitkeep
+*.zip
+*.png
